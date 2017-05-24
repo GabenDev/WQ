@@ -1,25 +1,56 @@
 import { Component } from '@angular/core';
 // import { NavController } from 'ionic-angular';
-import { UserService } from '../../providers/UserService';
-// import { Http } from '@angular/http';
+import { PlaceService } from '../../providers/PlaceService';
 import { Observable } from "rxjs/Observable";
-// import { LoginPage } from '../login/login';
+import {Place} from "../../domain/Place";
+import {MenuService} from "../../providers/MenuService";
+import {Category} from "../../domain/menu/Category";
+import {Item} from "../../domain/menu/Item";
+// import { Place } from "../../domain/Place";
 
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
-  providers : [UserService]
+  providers : [PlaceService, MenuService]
 })
 export class OrderPage {
-  userName : string = 'Gabor Fekete';
-  
-  constructor() {
+
+  places : Place[];
+  categories : Category[];
+  items : Item[];
+
+  selectedPlace : string;
+  selectedCategory : string;
+
+  constructor(public placeService : PlaceService, private menuService : MenuService) {
+    this.getPlaces();
   }
 
-  public loggedInUser() {
-    alert('OK');
-    // alert(this.loginPage.authenticatedUser.firstName);
-    // return this.loginPage.authenticatedUser;
+  public getMenu( placeId : string) {
+    this.selectedPlace = placeId;
+    this.menuService.getCategories(placeId).subscribe(response => {
+      this.categories = response;
+      console.log(JSON.stringify(response));
+    });
+  }
+
+  public getItems( categoryId : string) {
+    this.selectedCategory = categoryId;
+    this.menuService.getItems(categoryId).subscribe(response => {
+      this.items = response;
+      console.log(JSON.stringify(response));
+    });
+  }
+
+  public order( itemId : string) {
+    alert(itemId + ' added to the basket ');
+  }
+
+  public getPlaces() {
+    this.placeService.getPlaces().subscribe(response => {
+      this.places = response;
+      console.log(JSON.stringify(response));
+    });
   }
 
   handleError(error) {

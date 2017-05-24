@@ -7,6 +7,8 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { UserService } from "../providers/UserService";
+import { PlaceService } from '../providers/PlaceService';
+import { MenuService } from '../providers/MenuService';
 import { OrderPage } from '../pages/order/order';
 
 // Import the AF2 Module
@@ -68,6 +70,6 @@ const cloudSettings: CloudSettings = {
     LoginPage,
     OrderPage
   ],
-  providers: [ UserService ]
+  providers: [ UserService, PlaceService, MenuService ]
 })
 export class AppModule {}

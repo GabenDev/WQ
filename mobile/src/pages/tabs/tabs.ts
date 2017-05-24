@@ -7,8 +7,8 @@ import { LoginPage } from '../login/login';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: any = LoginPage;
-  tab2Root: any = OrderPage;
+  tab2Root: any = LoginPage;
+  tab1Root: any = OrderPage;
   constructor() {
 
   }

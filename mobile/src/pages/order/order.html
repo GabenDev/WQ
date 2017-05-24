@@ -15,21 +15,39 @@
     <ion-col></ion-col>
   </ion-row>
   <div class="login-box">
-    <form (ngSubmit)="loggedInUser()" #registerForm="ngForm">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-          </ion-list>
-        </ion-col>
-      </ion-row>
 
-      <ion-row>
+      <!--<ion-list *ngFor="let place of places">-->
+        <!--<ion-list-header >{{ place.name }}</ion-list-header>-->
+        <!--<ion-item-sliding class="shaded-slider" *ngFor="let client of x[type]">-->
+          <!--<ion-item>{{ client.name }}</ion-item>-->
+        <!--</ion-item-sliding>-->
+      <!--</ion-list>-->
+
+    <div *ngIf="!selectedPlace">
+      <ion-row *ngFor="let place of places">
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit">Get the authenticated user</button>
+          <button ion-button class="submit-btn" (click)="getMenu(place._id)" full> {{ place.name }}</button>
         </ion-col>
       </ion-row>
+    </div>
 
-    </form>
+    <!--items?.length == 0-->
+    <div *ngIf="!selectedCategory">
+      <ion-row *ngFor="let category of categories">
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" (click)="getItems(category._id)" full> {{ category.name }}</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div *ngIf="selectedPlace && selectedCategory">
+      <ion-row *ngFor="let item of items">
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" (click)="order(item._id)" full> {{ item.name }} - {{ item.price }} {{ item.currency.symbol }}</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
   </div>
 
 

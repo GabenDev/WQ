@@ -27,11 +27,11 @@ export class LoginPage {
         if(response) {
             this.authenticatedUser = response;
             alert('Authentication succeded !');
-            this.nav.push(OrderPage);
         } else {
           alert('Authentication failed !');
         }
     });
+    this.nav.push(OrderPage);
   }
 
   handleError(error) {
