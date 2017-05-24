@@ -10,6 +10,7 @@ import { UserService } from "../providers/UserService";
 import { PlaceService } from '../providers/PlaceService';
 import { MenuService } from '../providers/MenuService';
 import { OrderPage } from '../pages/order/order';
+import { Storage } from '@ionic/storage';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -70,6 +71,6 @@ const cloudSettings: CloudSettings = {
     LoginPage,
     OrderPage
   ],
-  providers: [ UserService, PlaceService, MenuService ]
+  providers: [ UserService, PlaceService, MenuService, Storage ]
 })
 export class AppModule {}

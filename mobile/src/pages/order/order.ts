@@ -7,11 +7,14 @@ import {MenuService} from "../../providers/MenuService";
 import {Category} from "../../domain/menu/Category";
 import {Item} from "../../domain/menu/Item";
 // import { Place } from "../../domain/Place";
+import { Storage } from '@ionic/storage';
+import {Basket} from "../../domain/basket/Basket";
+import {BasketItem} from "../../domain/basket/BasketItem";
 
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
-  providers : [PlaceService, MenuService]
+  providers : [PlaceService, MenuService, Storage]
 })
 export class OrderPage {
 
@@ -21,9 +24,13 @@ export class OrderPage {
 
   selectedPlace : string;
   selectedCategory : string;
+  basketItemsCount : number = 0;
 
-  constructor(public placeService : PlaceService, private menuService : MenuService) {
+  constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage) {
     this.getPlaces();
+    this.storage.set('basket', JSON.stringify(new Basket()));
+
+
   }
 
   public getMenu( placeId : string) {
@@ -42,8 +49,31 @@ export class OrderPage {
     });
   }
 
-  public order( itemId : string) {
-    alert(itemId + ' added to the basket ');
+  public remove ( item : Item ) {
+    this.storage.get('basket').then((response) => {
+      let basket: Basket = JSON.parse(response);
+
+      this.basketItemsCount = basket.items.length;
+      this.storage.set('basket', JSON.stringify(basket));
+    })
+  }
+
+  public order( item : Item) {
+    this.storage.get('basket').then((response) => {
+      let basket : Basket = JSON.parse(response);
+      console.log(basket.items.length);
+      basket.items.filter(x => x.item._id === item._id)
+        .map(x => function(x) {
+          console.log(x);
+          // if(x.orders && x.orders > 1) {
+          //   x.orders++;
+          // } else {
+          //   basket.items.push(new BasketItem(item, 1));
+          // }
+        });
+      this.basketItemsCount = this.basketItemsCount++;
+      this.storage.set('basket', JSON.stringify(basket));
+    });
   }
 
   public getPlaces() {

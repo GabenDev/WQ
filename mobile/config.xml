@@ -63,4 +63,5 @@
     <plugin name="phonegap-plugin-push" spec="^1.10.3">
         <variable name="SENDER_ID" value="340331802320" />
     </plugin>
+    <plugin name="cordova-sqlite-storage" spec="~2.0.4" />
 </widget>

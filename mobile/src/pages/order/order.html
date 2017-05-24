@@ -4,7 +4,8 @@
       Ordering
     </ion-title>
     <ion-title last>
-      Logged in as {{ userName }}
+      Items in the basket: {{ basketItemsCount }}
+      <!--Logged in as {{ userName }}-->
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -43,7 +44,7 @@
     <div *ngIf="selectedPlace && selectedCategory">
       <ion-row *ngFor="let item of items">
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" (click)="order(item._id)" full> {{ item.name }} - {{ item.price }} {{ item.currency.symbol }}</button>
+          <button ion-button class="submit-btn" (click)="order(item)" full> {{ item.name }} - {{ item.price }} {{ item.currency.symbol }}</button>
         </ion-col>
       </ion-row>
     </div>
