@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ordering
+    </ion-title>
+    <ion-title last>
+      Logged in as {{ userName }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="login-content" padding>
+
+
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form (ngSubmit)="loggedInUser()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit">Get the authenticated user</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+
+
+  <!--<label class="item item-input">-->
+    <!--<span class="input-label">Username</span>-->
+    <!--<input [(ngModel)]="authenticatedUser.userName" type="text">-->
+    <!--{{ authenticatedUser.userName }}-->
+  <!--</label>-->
+  <!--<label class="item item-input">-->
+    <!--<span class="input-label">Password</span>-->
+    <!--<input [(ngModel)]="authenticatedUser.password" type="password">-->
+    <!--{{ authenticatedUser.password }}-->
+  <!--</label>-->
+  <!--<button ion-button clear full (click)="login()">Login</button>-->
+</ion-content>
