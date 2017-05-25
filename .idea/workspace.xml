@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/pages/basket/basket.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/pages/basket/basket.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/pages/basket/basket.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/pages/menu/menu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mobile/src/providers/BasketService.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.component.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.html" afterPath="$PROJECT_DIR$/mobile/src/app/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.module.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.scss" afterPath="$PROJECT_DIR$/mobile/src/app/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" afterPath="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/order/order.html" afterPath="$PROJECT_DIR$/mobile/src/pages/order/order.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/order/order.scss" afterPath="$PROJECT_DIR$/mobile/src/pages/order/order.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html" afterPath="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,24 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-                <element signature="e#258#317#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="basket.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="23" column="208" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="208" />
               <folding>
                 <element signature="e#953#959#0" expanded="true" />
               </folding>
@@ -56,11 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state relative-caret-position="340">
+              <caret line="71" column="3" lean-forward="false" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/domain/menu/Item.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -70,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -89,8 +76,8 @@
       <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/app/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="82" selection-end-column="3" />
+            <state relative-caret-position="600">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,31 +86,32 @@
       <file leaf-file-name="basket.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+            <state relative-caret-position="500">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="48" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/app/app.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="110" lean-forward="false" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
+            <state relative-caret-position="300">
+              <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
               <folding>
-                <element signature="e#470#476#0" expanded="true" />
+                <element signature="e#489#495#0" expanded="true" />
+                <element signature="e#2420#2426#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabs.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,8 +119,8 @@
       <file leaf-file-name="order.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
+            <state relative-caret-position="180">
+              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -197,12 +185,10 @@
         <option value="$PROJECT_DIR$/mobile/src/domain/menu/MenuItem.ts" />
         <option value="$PROJECT_DIR$/mobile/src/domain/menu/MenuCategory.ts" />
         <option value="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" />
         <option value="$PROJECT_DIR$/mobile/src/domain/Basket.ts" />
         <option value="$PROJECT_DIR$/mobile/src/domain/basket/Basket.ts" />
         <option value="$PROJECT_DIR$/mobile/src/domain/basket/BasketItem.ts" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html" />
         <option value="$PROJECT_DIR$/mobile/www/build/main.css" />
         <option value="$PROJECT_DIR$/mobile/src/providers/BasketService.ts" />
         <option value="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.ts" />
@@ -211,12 +197,14 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/menu/menu.html" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.html" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/basket/basket.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/basket/basket.html" />
+        <option value="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.scss" />
         <option value="$PROJECT_DIR$/mobile/src/pages/order/order.scss" />
         <option value="$PROJECT_DIR$/mobile/src/pages/order/order.html" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/basket/basket.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/basket/basket.html" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
       </list>
     </option>
   </component>
@@ -471,6 +459,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -596,12 +632,12 @@
       <workItem from="1495624195908" duration="5613000" />
       <workItem from="1495630563120" duration="12641000" />
       <workItem from="1495644154548" duration="15326000" />
-      <workItem from="1495728241354" duration="4362000" />
+      <workItem from="1495728241354" duration="7218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38197000" />
+    <option name="totallyTimeSpent" value="41053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="997" extended-state="6" />
@@ -713,7 +749,8 @@
         <state relative-caret-position="120">
           <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="46" />
           <folding>
-            <element signature="e#470#476#0" expanded="true" />
+            <element signature="e#489#495#0" expanded="true" />
+            <element signature="e#2420#2426#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -808,8 +845,8 @@
         <state relative-caret-position="100">
           <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <element signature="e#258#317#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="false" />
+            <element signature="e#258#317#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,14 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/domain/menu/Item.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/www/build/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1002,14 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/menu/menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1033,8 +1054,8 @@
         <state relative-caret-position="599">
           <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <element signature="e#258#317#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="false" />
+            <element signature="e#258#317#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1050,7 +1071,7 @@
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1058,60 +1079,77 @@
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/domain/menu/Item.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/tabs/tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="71" column="3" lean-forward="false" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="600">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="180">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="110" lean-forward="false" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
-          <folding>
-            <element signature="e#470#476#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="500">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="48" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/basket/basket.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="23" column="208" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="208" />
           <folding>
             <element signature="e#953#959#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.ts">
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/order/order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="e#489#495#0" expanded="true" />
+            <element signature="e#2420#2426#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

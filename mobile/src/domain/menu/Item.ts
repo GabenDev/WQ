@@ -7,4 +7,9 @@ export class Item {
     language : any;
     order : Number;
     category : any;
+    orders : number;
+
+    constructor() {
+      this.orders = 0;
+    }
 };

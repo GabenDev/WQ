@@ -67,24 +67,37 @@ export class OrderPage {
     });
   }
 
+  public submitOrder() {
+    alert('Order submitted');
+  }
+
   public toBasket() {
     this.nav.push(BasketPage);
   }
 
+  public remove(item : Item) {
+      item.orders -= 1;
+  }
+
   public order( item : Item) {
-    this.storage.get('basket').then((response) => {
-      let basket : Basket = JSON.parse(response);
-      let index = this.findWithAttr(basket.items, '_id', item._id);
-      if( index == -1) {
-        basket.items.push(new BasketItem(item, 1));
-      } else {
-        basket.items[index]["orders"] = basket.items[index]["orders"] + 1;
-      }
-      this.basketItemsCount = this.basketItemsCount+1;
-      console.log(JSON.stringify(basket));
-      this.storage.set('basket', JSON.stringify(basket));
-      this.events.publish('order:created', item);
-    });
+    if(!item.orders) {
+      item.orders = 1;
+    } else {
+      item.orders += 1;
+    }
+    // this.storage.get('basket').then((response) => {
+    //   let basket : Basket = JSON.parse(response);
+    //   let index = this.findWithAttr(basket.items, '_id', item._id);
+    //   if( index == -1) {
+    //     basket.items.push(new BasketItem(item, 1));
+    //   } else {
+    //     basket.items[index]["orders"] = basket.items[index]["orders"] + 1;
+    //   }
+    //   this.basketItemsCount = this.basketItemsCount+1;
+    //   console.log(JSON.stringify(basket));
+    //   this.storage.set('basket', JSON.stringify(basket));
+    //   this.events.publish('order:created', item);
+    // });
   }
 
   private findWithAttr(array, attr, value) {
