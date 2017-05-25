@@ -77,6 +77,7 @@ export class OrderPage {
 
   public remove(item : Item) {
       item.orders -= 1;
+      this.basketItemsCount = this.basketItemsCount-1;
   }
 
   public order( item : Item) {
@@ -93,7 +94,7 @@ export class OrderPage {
     //   } else {
     //     basket.items[index]["orders"] = basket.items[index]["orders"] + 1;
     //   }
-    //   this.basketItemsCount = this.basketItemsCount+1;
+      this.basketItemsCount = this.basketItemsCount+1;
     //   console.log(JSON.stringify(basket));
     //   this.storage.set('basket', JSON.stringify(basket));
     //   this.events.publish('order:created', item);
