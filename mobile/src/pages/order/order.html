@@ -1,20 +1,28 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>
-      Ordering
-    </ion-title>
-    <ion-title last>
-      Items in the basket: {{ basketItemsCount }}
-      <!--Logged in as {{ userName }}-->
-    </ion-title>
+    <!--<button ion-button menuToggle>-->
+      <!--<ion-icon name="menu"></ion-icon>-->
+    <!--</button>-->
+    <button ion-button (click)="getMenu(selectedPlace)" color="danger"> <ion-icon name="clipboard"></ion-icon></button>
+
+    <!--<ion-title>-->
+      <!--Ordering-->
+    <!--</ion-title>-->
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click) = "toBasket()">
+        {{ basketItemsCount }} &nbsp;
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
-<ion-content class="login-content" padding>
+<ion-content class="app-content" padding>
 
 
-  <ion-row class="logo-row">
-    <ion-col></ion-col>
-  </ion-row>
+  <!--<ion-row class="logo-row">-->
+    <!--<ion-col></ion-col>-->
+  <!--</ion-row>-->
   <div class="login-box">
 
       <!--<ion-list *ngFor="let place of places">-->
@@ -25,28 +33,35 @@
       <!--</ion-list>-->
 
     <div *ngIf="!selectedPlace">
-      <ion-row *ngFor="let place of places">
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" (click)="getMenu(place._id)" full> {{ place.name }}</button>
-        </ion-col>
-      </ion-row>
+      <ion-item *ngFor="let place of places" (click)="getMenu(place._id)">
+        <h2>{{ place.name }}</h2>
+      </ion-item>
     </div>
 
     <!--items?.length == 0-->
     <div *ngIf="!selectedCategory">
-      <ion-row *ngFor="let category of categories">
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" (click)="getItems(category._id)" full> {{ category.name }}</button>
-        </ion-col>
-      </ion-row>
+      <ion-list>
+          <ion-item *ngFor="let category of categories" (click)="getItems(category._id)">
+            <h2>{{ category.name }}</h2>
+          </ion-item>
+        </ion-list>
     </div>
 
     <div *ngIf="selectedPlace && selectedCategory">
-      <ion-row *ngFor="let item of items">
-        <ion-col class="signup-col">
-          <button ion-button class="submit-btn" (click)="order(item)" full> {{ item.name }} - {{ item.price }} {{ item.currency.symbol }}</button>
-        </ion-col>
-      </ion-row>
+      <ion-list>
+        <ion-item *ngFor="let item of items" (click)="order(item)">
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.description }}</p>
+          <p class="price">{{ item.price }} {{ item.currency.symbol }}</p>
+        </ion-item>
+      </ion-list>
+
+      <!--<ion-row *ngFor="let item of items">-->
+        <!--<ion-col class="signup-col">-->
+          <!--<button ion-button class="submit-btn" (click)="order(item)" full> {{ item.name }} - {{ item.price }} {{ item.currency.symbol }}</button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+      <!--<button ion-button class="submit-btn" (click)="toBasket()" full> Basket </button>-->
     </div>
 
   </div>

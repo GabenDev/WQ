@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Basket
+    </ion-title>
+
+  <!--<ion-buttons end>-->
+    <!--<button ion-button icon-only color="royal">-->
+      <!--<ion-icon name="person-add"></ion-icon>-->
+    <!--</button>-->
+  <!--</ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+<ion-content class="login-content" padding>
+
+  <ion-list>
+    <ion-item *ngFor="let basketItem of basket.items">
+        <h2>{{ basketItem.item.name }}</h2>
+        <p>{{ basketItem.item.description }}</p>
+        <p class="price">{{ basketItem.item.price }} {{ basketItem.item.currency.symbol }} X {{ basketItem.orders }} = {{ basketItem.item.price * basketItem.orders }} {{ basketItem.item.currency.symbol }}</p>
+
+        <button ion-button clear item-right icon-only end color="danger" (click)="remove(basketItem.item)">
+          ( {{ basketItem.orders }} ) &nbsp;
+          <ion-icon class="icon" ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
+        </button>
+    </ion-item>
+  </ion-list>
+
+  <!--<ion-row class="logo-row">-->
+    <!--<ion-col></ion-col>-->
+  <!--</ion-row>-->
+    <!--<div class = "bar bar-header bar-dark">This is the basket page</div>-->
+    <!--<div class="login-box">-->
+      <!--<ion-row *ngFor="let basketItem of basket.items">-->
+        <!--<ion-col class="signup-col">-->
+          <!--<button ion-button class="submit-btn" full> {{ basketItem.item.name }} - {{ basketItem.orders }}</button>-->
+        <!--</ion-col>-->
+      <!--</ion-row>-->
+    <!--</div>-->
+  <button ion-button class="submit-btn" (click)="submit()" full>Submit</button>
+</ion-content>

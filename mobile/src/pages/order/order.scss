@@ -1,6 +1,6 @@
 page-order {
 
-  .login-content {
+  .app-content {
     background: #51a7e8;
 
     .logo-row {
@@ -20,7 +20,7 @@ page-order {
     }
 
     ion-item {
-      border-radius: 30px !important;
+      border-radius: 5px !important;
       padding-left: 30px !important;
       font-size: 0.9em;
       margin-bottom: 10px;
@@ -53,4 +53,12 @@ page-order {
     }
   }
 
+  .price {
+    color: #FF4500;
+    font-size: 1.4em;
+  }
+
+  .icon {
+    font-size: 2.5em;
+  }
 }
