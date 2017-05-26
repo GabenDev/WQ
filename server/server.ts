@@ -158,10 +158,9 @@ router.route('/order')
     .delete(function (req : any, res : any) {
         console.log(req.body);
         Queue.remove({}, function (err : any, place : any) {
-            return res.send("Queue Succesfully deleted: " + req.body.id);
-        });
-        Order.remove({}, function (err : any, place : any) {
-            return res.send("Orders Succesfully deleted: " + req.body.id);
+            Order.remove({}, function (err : any, place : any) {
+                return res.send("Queues and Orders Succesfully deleted! ");
+            });
         });
 
     });
