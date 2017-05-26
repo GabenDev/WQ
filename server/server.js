@@ -69,6 +69,7 @@ router.route('/order/:placeId/status/:status')
     .get(function (req, res) {
     Order.find({ 'place': req.params.placeId, 'status': req.params.status })
         .sort([['orderDate', 'ascending']])
+        .populate('item')
         .exec(function (err, queue) {
         handleError(err, res);
         res.json(queue);
