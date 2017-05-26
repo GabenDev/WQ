@@ -5,10 +5,13 @@ import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {Category} from "../domain/menu/Category";
 import {Item} from "../domain/menu/Item";
+import {Basket} from "../domain/basket/Basket";
+import {BasketItem} from "../domain/basket/BasketItem";
 
 @Injectable()
 export class MenuService {
   baseUrl = "http://gaben.gleeze.com:8100/api/menu"
+  basket : Basket = new Basket();
 
   constructor(public http: Http) {
     console.log('MenuService initialized');
@@ -28,6 +31,48 @@ export class MenuService {
       .catch(this.handleError);
   }
 
+  public setPlace(placeId : String) {
+    this.basket.place = placeId;
+  }
+
+  public putIntoBasket( item : Item) {
+    if(!item.orders) {
+      item.orders = 1;
+    } else {
+      item.orders += 1;
+    }
+    let index = this.findWithAttr(this.basket.items, '_id', item._id);
+    if( index == -1) {
+      this.basket.items.push(new BasketItem(item, 1));
+    } else {
+      this.basket.items[index]["orders"] = this.basket.items[index]["orders"] + 1;
+    }
+  }
+
+  public removeFromBasket(item : Item) {
+    item.orders -= 1;
+    if(item.orders == 0) {
+      let index = this.findWithAttr(this.basket.items, '_id', item._id);
+      this.basket.items.splice(index, 1);
+    }
+  }
+
+  public getBasketItemCount() {
+    let count;
+    for(var i = 0; i < this.basket.items.length; i += 1) {
+      count += this.basket.items[i].orders;
+    }
+    return count;
+  }
+
+  private findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+      if(array[i]["item"][attr] === value) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
 // {
 //   "place" : "59245f209791c610ca9111a8",
@@ -38,7 +83,7 @@ export class MenuService {
 // }
 
   public order() {
-    
+
   }
 
 

@@ -130,8 +130,6 @@ router.route('/order')
     .post(function (req : any, res : any) {
         let place = req.body.place;
         let orders : Order[] = req.body.items;
-        console.log(orders[0].item);
-
 
         Queue.findOne({ 'place' : place })
             .exec(function (err : any, queue : Queue) {
@@ -226,7 +224,6 @@ router.route('/menu/place/:id')
                 console.log(menuItem.name);
                 menuItem.save(function (err : any) {
                     category.items.push(menuItem._id);
-                    console.log('The categoryId: ' + category._id);
                     Category.findOneAndUpdate({ '_id' :  category._id }, category, {upsert:true}, function(err : any, doc : any){
                         if (err) return res.send(500, { error: err });
                     });

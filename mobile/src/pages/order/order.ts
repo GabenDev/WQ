@@ -27,8 +27,6 @@ export class OrderPage {
   selectedCategory : string;
   basketItemsCount : number = 0;
 
-  basket : Basket = new Basket();
-
   constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events) {
     this.init();
 
@@ -76,53 +74,14 @@ export class OrderPage {
   }
 
   public remove(item : Item) {
-      item.orders -= 1;
-      this.basketItemsCount = this.basketItemsCount-1;
+      this.menuService.removeFromBasket(item);
+      this.basketItemsCount = this.menuService.getBasketItemCount();
   }
 
   public order( item : Item) {
-    if(!item.orders) {
-      item.orders = 1;
-    } else {
-      item.orders += 1;
-    }
-
-
-    this.basketItemsCount = this.basketItemsCount+1;
-    // this.storage.get('basket').then((response) => {
-    //   let basket : Basket = JSON.parse(response);
-      let index = this.findWithAttr(this.basket.items, '_id', item._id);
-      if( index == -1) {
-        this.basket.items.push(new BasketItem(item, 1));
-      } else {
-        this.basket.items[index]["orders"] = this.basket.items[index]["orders"] + 1;
-      }
-
-
-    //   console.log(JSON.stringify(basket));
-    //   this.storage.set('basket', JSON.stringify(basket));
-    //   this.events.publish('order:created', item);
-    // });
+    this.menuService.putIntoBasket(item);
+    this.basketItemsCount = this.menuService.getBasketItemCount();
   }
-
-  private findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i]["item"][attr] === value) {
-        return i;
-      }
-    }
-  return -1;
-  }
-
-  // private findObjectWithAttr(array, item, property, value) {
-  //   for(var i = 0; i < array.length; i += 1) {
-  //     if(array[i][item][property] === value) {
-  //       return array[i];
-  //     }
-  //   }
-  // return -1;
-  // }
-
 
   public getPlaces() {
     this.placeService.getPlaces().subscribe(response => {
