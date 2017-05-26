@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 /**
  * Created by gaben on 2017.05.23..
  */
@@ -15,7 +17,8 @@ var OrderSchema = new Schema({
         ref: 'Place'
     },
     orderDate: { type: Date, "default": Date.now },
-    status: { type: String, "enum": ['IN_PROGRESS', 'DONE', 'CANCELLED'], "default": 'IN_PROGRESS' }
+    status: { type: String, "enum": ['IN_PROGRESS', 'DONE', 'CANCELLED'], "default": 'IN_PROGRESS' },
+    readyDate: Date
 });
 OrderSchema.methods.from = function (order, sequence, place) {
     this.item = order.item._id;

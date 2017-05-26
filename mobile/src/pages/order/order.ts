@@ -52,6 +52,8 @@ export class OrderPage {
     this.selectedCategory = "";
     this.selectedPlace = placeId;
     this.menuService.setPlace(placeId);
+    this.storage.set('selectedPlace', placeId);
+
     this.menuService.getCategories(placeId).subscribe(response => {
       this.categories = response;
       console.log(JSON.stringify(response));

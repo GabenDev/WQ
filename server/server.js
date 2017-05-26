@@ -65,10 +65,17 @@ router.route('/order/:placeId/active')
         res.json(sequences);
     });
 });
-router.route('/order/:placeId/status/:status')
+router.route('/order/:placeId/status/:status/order/:order')
     .get(function (req, res) {
+    var order;
+    if (req.params.status === 'asc') {
+        order = 'ascending';
+    }
+    else {
+        order = 'descending';
+    }
     Order.find({ 'place': req.params.placeId, 'status': req.params.status })
-        .sort([['orderDate', 'ascending']])
+        .sort([['orderDate', order]])
         .populate('item')
         .populate('item.currency')
         .exec(function (err, queue) {
@@ -78,7 +85,7 @@ router.route('/order/:placeId/status/:status')
 });
 router.route('/order/done')
     .post(function (req, res) {
-    Order.update({ 'place': req.body.placeId, 'sequence': req.body.sequence }, { 'status': 'DONE' }, { multi: true }, function (err, item) {
+    Order.update({ 'place': req.body.placeId, 'sequence': req.body.sequence }, { 'readyDate': Date.now(), 'status': 'DONE' }, { multi: true }, function (err, item) {
         if (err)
             return res.send(500, { error: err });
         return res.json(item);

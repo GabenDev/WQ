@@ -7,6 +7,7 @@ import {Category} from "../domain/menu/Category";
 import {Item} from "../domain/menu/Item";
 import {Basket} from "../domain/basket/Basket";
 import {BasketItem} from "../domain/basket/BasketItem";
+import {Order} from "../domain/menu/Order";
 
 @Injectable()
 export class MenuService {
@@ -14,6 +15,7 @@ export class MenuService {
   orderUrl = "http://gaben.gleeze.com:8100/api/order"
   basket : Basket = new Basket();
 
+  selectedPlace : String;
   constructor(public http: Http) {
     console.log('MenuService initialized');
   }
@@ -33,7 +35,12 @@ export class MenuService {
   }
 
   public setPlace(placeId : String) {
-    this.basket.place = placeId;
+    this.selectedPlace = placeId;
+    this.basket.place = this.selectedPlace;
+  }
+
+  public getPlace() {
+    return this.selectedPlace;
   }
 
   public putIntoBasket( item : Item) {
@@ -68,6 +75,15 @@ export class MenuService {
     return count;
   }
 
+  public findByAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
   private findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
       if(array[i]["item"][attr] === value) {
@@ -93,8 +109,17 @@ export class MenuService {
     return request;
   }
 
-  public getPendingOrders(placeId : String) {
-    return this.http.get(this.orderUrl + placeId + "/status/IN_PROGRESS", this.jwt())
+  public orderDone(place : String, sequence : number) {
+    return this.http.post(this.orderUrl + "/done", {
+      "placeId" : place,
+      "sequence" : sequence
+    }, this.jwt())
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  public getPendingOrders(placeId : String) : Observable<Order[]> {
+    return this.http.get(this.orderUrl + "/" + placeId + "/status/IN_PROGRESS", this.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
