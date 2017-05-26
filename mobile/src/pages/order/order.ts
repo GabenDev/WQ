@@ -51,6 +51,7 @@ export class OrderPage {
   public getMenu( placeId : string) {
     this.selectedCategory = "";
     this.selectedPlace = placeId;
+    this.menuService.setPlace(placeId);
     this.menuService.getCategories(placeId).subscribe(response => {
       this.categories = response;
       console.log(JSON.stringify(response));
@@ -66,7 +67,8 @@ export class OrderPage {
   }
 
   public submitOrder() {
-    alert('Order submitted');
+    this.menuService.order();
+    this.init();
   }
 
   public toBasket() {

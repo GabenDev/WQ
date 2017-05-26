@@ -11,6 +11,7 @@ import {BasketItem} from "../domain/basket/BasketItem";
 @Injectable()
 export class MenuService {
   baseUrl = "http://gaben.gleeze.com:8100/api/menu"
+  orderUrl = "http://gaben.gleeze.com:8100/api/order"
   basket : Basket = new Basket();
 
   constructor(public http: Http) {
@@ -51,14 +52,16 @@ export class MenuService {
 
   public removeFromBasket(item : Item) {
     item.orders -= 1;
+    let index = this.findWithAttr(this.basket.items, '_id', item._id);
+    this.basket.items[index]["orders"] = this.basket.items[index]["orders"] - 1;
+    
     if(item.orders == 0) {
-      let index = this.findWithAttr(this.basket.items, '_id', item._id);
       this.basket.items.splice(index, 1);
     }
   }
 
   public getBasketItemCount() {
-    let count;
+    let count = 0;
     for(var i = 0; i < this.basket.items.length; i += 1) {
       count += this.basket.items[i].orders;
     }
@@ -77,13 +80,17 @@ export class MenuService {
 // {
 //   "place" : "59245f209791c610ca9111a8",
 //   "orders" : [
-//     { "item" : "592535469c0a0b38b2de4df7", "orders" : 2},
-//     { "item" : "592535469c0a0b38b2de4df8", "orders" : 5}
+//     { "_id" : "592535469c0a0b38b2de4df7", "orders" : 2},
+//     { "_id" : "592535469c0a0b38b2de4df8", "orders" : 5}
 //     ]
 // }
-
   public order() {
-
+    console.log(JSON.stringify(this.basket));
+    let request = this.http.post(this.orderUrl, JSON.stringify(this.basket), this.jwt())
+      .map(res => res.json())
+      .catch(this.handleError);
+    this.basket = new Basket();
+    return request;
   }
 
 

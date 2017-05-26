@@ -10,7 +10,7 @@ app.use(morgan('dev')); // log requests to the console
 // configure body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-var port = process.env.PORT || 8000; // set our port
+var port = process.env.PORT || 8100; // set our port
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/wisequeue'); // connect to our database
 // var Todo = require('./app/models/todo');
@@ -111,7 +111,6 @@ router.route('/order')
     .post(function (req, res) {
     var place = req.body.place;
     var orders = req.body.items;
-    console.log(orders[0].item);
     Queue.findOne({ 'place': place })
         .exec(function (err, queue) {
         if (queue != null) {
@@ -196,7 +195,6 @@ router.route('/menu/place/:id')
             console.log(menuItem.name);
             menuItem.save(function (err) {
                 category.items.push(menuItem._id);
-                console.log('The categoryId: ' + category._id);
                 Category.findOneAndUpdate({ '_id': category._id }, category, { upsert: true }, function (err, doc) {
                     if (err)
                         return res.send(500, { error: err });
