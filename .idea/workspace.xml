@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/order/Order.ts" afterPath="$PROJECT_DIR$/server/models/order/Order.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -80,11 +80,21 @@
       <file leaf-file-name="server.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="135" column="35" lean-forward="false" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
+            <state relative-caret-position="547">
+              <caret line="147" column="69" lean-forward="true" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,21 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Order.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Order.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/user.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="67" />
+              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -130,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rootPage</find>
       <find>username</find>
       <find>address</find>
       <find>fff</find>
@@ -160,6 +159,7 @@
       <find>for</find>
       <find>.item</find>
       <find>.pos</find>
+      <find>[0]</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,7 +201,6 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/order/order.html" />
         <option value="$PROJECT_DIR$/server/models/order/MenuItem.ts" />
         <option value="$PROJECT_DIR$/server/package.json" />
-        <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/server/models/order/Queue.js" />
         <option value="$PROJECT_DIR$/server/models/order/Queue.ts" />
         <option value="$PROJECT_DIR$/server/models/order/OrderItem.ts" />
@@ -211,6 +210,7 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
         <option value="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
         <option value="$PROJECT_DIR$/server/models/order/Order.ts" />
+        <option value="$PROJECT_DIR$/server/server.js" />
       </list>
     </option>
   </component>
@@ -231,10 +231,10 @@
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="997" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="989" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -658,15 +658,15 @@
       <workItem from="1495624195908" duration="5613000" />
       <workItem from="1495630563120" duration="12641000" />
       <workItem from="1495644154548" duration="15326000" />
-      <workItem from="1495728241354" duration="22256000" />
+      <workItem from="1495728241354" duration="22920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56091000" />
+    <option name="totallyTimeSpent" value="56755000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="997" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="989" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1078,16 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="58" column="49" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/order/Queue.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1170,8 +1160,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="135" column="35" lean-forward="false" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
+        <state relative-caret-position="547">
+          <caret line="147" column="69" lean-forward="true" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1181,7 +1171,15 @@
     <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
           <folding />
         </state>
       </provider>

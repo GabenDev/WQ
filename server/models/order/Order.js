@@ -18,8 +18,8 @@ var OrderSchema = new Schema({
     status: { type: String, "enum": ['IN_PROGRESS', 'DONE', 'CANCELLED'], "default": 'IN_PROGRESS' }
 });
 OrderSchema.methods.from = function (order, sequence, place) {
-    this.item = order.item;
-    this.orders = order.orders;
+    this.item = order.item._id;
+    this.orders = order.item.orders;
     this.sequence = sequence;
     this.place = place;
     return this;
