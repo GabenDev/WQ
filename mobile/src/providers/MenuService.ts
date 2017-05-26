@@ -52,15 +52,16 @@ export class MenuService {
     let index = this.findWithAttr(this.basket.items, '_id', item._id);
     if( index == -1) {
       this.basket.items.push(new BasketItem(item, 1));
-    } else {
-      this.basket.items[index]["orders"] = this.basket.items[index]["orders"] + 1;
+    }
+    else {
+      this.basket.items[index].item["orders"] = item.orders;
     }
   }
 
   public removeFromBasket(item : Item) {
     item.orders -= 1;
     let index = this.findWithAttr(this.basket.items, '_id', item._id);
-    this.basket.items[index]["orders"] = this.basket.items[index]["orders"] - 1;
+    this.basket.items[index].item["orders"] = item.orders;
 
     if(item.orders == 0) {
       this.basket.items.splice(index, 1);
@@ -70,7 +71,7 @@ export class MenuService {
   public getBasketItemCount() {
     let count = 0;
     for(var i = 0; i < this.basket.items.length; i += 1) {
-      count += this.basket.items[i].orders;
+      count += this.basket.items[i].item.orders;
     }
     return count;
   }

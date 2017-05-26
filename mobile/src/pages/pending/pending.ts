@@ -11,7 +11,6 @@ import {PendingResponse} from "./PendingResponse";
 })
 export class PendingPage {
 
-  pendingOrders : PendingResponse[];
   selectedPlace : String;
   pendingItems : PendingResponse[] = [];
 
@@ -35,8 +34,7 @@ export class PendingPage {
         this.menuService.getPendingOrders(this.selectedPlace).subscribe(response => {
           for(var i = 0; i<response.length; i++) {
             let index : number = this.menuService.findByAttr(this.pendingItems, "sequence", response[i].sequence);
-            console.log("pendingItems: " + JSON.stringify(response[i].sequence) + " ---- " + index);
-                if(index == -1) {
+            if(index == -1) {
                   this.pendingItems.push(new PendingResponse(response[i]));
             } else {
               this.pendingItems[index].items.push(response[i]);

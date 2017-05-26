@@ -64,13 +64,26 @@ export class OrderPage {
     this.selectedCategory = categoryId;
     this.menuService.getItems(categoryId).subscribe(response => {
       this.items = response;
-      console.log(JSON.stringify(response));
+      for(var i = 0; i< this.menuService.basket.items.length; i++) {
+        let index = this.menuService.findByAttr(this.items, "_id", this.menuService.basket.items[i].item._id);
+        if(index != -1) {
+          this.items[index].orders = this.menuService.basket.items[i].item.orders;
+        }
+      }
     });
+  }
+
+  private printBasket() {
+    for(var i = 0; i< this.menuService.basket.items.length; i++) {
+      let item = this.menuService.basket.items[i].item;
+      console.log(item._id + " - " + item.name + " - " + item.orders);
+    }
   }
 
   public submitOrder() {
     this.menuService.order().subscribe(response => {
       this.getMenu( this.selectedPlace );
+      this.basketItemsCount = 0;
       this.presentToast(response.orders);
     })
   };
@@ -90,11 +103,13 @@ export class OrderPage {
   public remove(item : Item) {
       this.menuService.removeFromBasket(item);
       this.basketItemsCount = this.menuService.getBasketItemCount();
+      this.printBasket();
   }
 
   public order( item : Item) {
     this.menuService.putIntoBasket(item);
     this.basketItemsCount = this.menuService.getBasketItemCount();
+    this.printBasket();
   }
 
   public getPlaces() {
