@@ -6,7 +6,10 @@
     "url": "git://github.com/scotch-io/node-token-authentication"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "tsc && concurrently \"npm run tsc:w\" \"node server.js\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
   },
   "author": "Chris Sevilleja <scotch.io>",
   "license": "MIT",

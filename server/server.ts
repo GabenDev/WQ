@@ -26,6 +26,8 @@ var Country = require('./models/Country');
 
 var Category = require('./models/menu/MenuCategory');
 var MenuItem = require('./models/menu/MenuItem');
+var Order = require('./models/order/Order');
+var Queue = require('./models/order/Queue');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -48,6 +50,119 @@ router.use(function (req : any, res : any, next : any) {
 router.get('/', function (req : any, res : any) {
     res.json({message: 'The service is up and running!'});
 });
+
+
+router.route('/order/:placeId')
+    .get(function (req : any, res : any) {
+        Order.find({ 'place' : req.params.placeId})
+             .sort([['orderDate', 'descending']])
+             .exec(function (err : any, queue : any) {
+                handleError(err, res);
+                res.json(queue);
+             });
+    });
+
+
+router.route('/order/:placeId/active')
+    .get(function (req : any, res : any) {
+        let sequences : Number[] = [];
+        Order.find({ 'place' : req.params.placeId, 'status' : 'IN_PROGRESS' })
+            .sort([['orderDate', 'descending']])
+            .exec(function (err : any, orders : any) {
+                handleError(err, res);
+                for (var index = 0; index < orders.length; ++index) {
+                    if(sequences.indexOf(orders[index].sequence)  == -1 ) {
+                        sequences.push(orders[index].sequence);
+                    }
+                }
+                res.json(sequences);
+            });
+    });
+
+router.route('/order/:placeId/status/:status')
+    .get(function (req : any, res : any) {
+        Order.find({ 'place' : req.params.placeId, 'status' : req.params.status })
+            .sort([['orderDate', 'descending']])
+            .exec(function (err : any, queue : any) {
+                handleError(err, res);
+                res.json(queue);
+            });
+    });
+
+router.route('/order/done')
+    .post(function (req : any, res : any) {
+        Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'status' : 'DONE' }, {multi: true}, function(err, item){
+            if (err) return res.send(500, { error: err });
+            return res.json(item);
+        });
+    });
+
+router.route('/order/cancel')
+    .post(function (req : any, res : any) {
+        Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'status' : 'CANCELLED' }, {multi: true}, function(err, item){
+            if (err) return res.send(500, { error: err });
+            return res.json(item);
+        });
+    });
+
+
+router.route('/order/:placeId/item/:sequence')
+    .get(function (req : any, res : any) {
+        Order.find({ 'place' : req.params.placeId, 'sequence' : req.params.sequence })
+            .sort([['orderDate', 'descending']])
+            .exec(function (err : any, queue : any) {
+                handleError(err, res);
+                res.json(queue);
+            });
+    });
+
+
+router.route('/order')
+    .get(function (req : any, res : any) {
+        Order.find({ })
+            .sort([['orderDate', 'descending']])
+            .exec(function (err : any, queues : any) {
+                handleError(err, res);
+                res.json(queues);
+            });
+    })
+
+    .post(function (req : any, res : any) {
+        let place = req.body.place;
+        let orders : Order[] = req.body.orders;
+        console.log(orders[0].item);
+
+
+        Queue.findOne({ 'place' : place })
+            .exec(function (err : any, queue : Queue) {
+                if(queue != null) {
+                    queue.orders = queue.orders + 1;
+                } else {
+                    queue = new Queue().from(req.body);
+                }
+                if(req.body.newValue) {
+                    queue.orders = req.body.newValue;
+                }
+                Queue.findOneAndUpdate({ 'place' :  place }, queue, {upsert:true}, function(err : any){
+                    if (err) return res.send(500, { error: err });
+                });
+
+                for (var index = 0; index < orders.length; ++index) {
+                    let order = new Order().from(orders[index], queue.orders, place);
+                    order.save(function (err : any) {
+                        handleError(err, res);
+                        res.json(queue);
+                    })
+                }
+        });
+    })
+
+    .delete(function (req : any, res : any) {
+        console.log(req.body);
+        Queue.remove({}, function (err : any, place : any) {
+            return res.send("Queue Succesfully deleted: " + req.body.id);
+        })
+    });
 
 router.route('/menu/category/:id/simple')
     .get(function (req : any, res : any) {
