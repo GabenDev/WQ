@@ -8,6 +8,7 @@ export class Item {
     order : Number;
     category : any;
     orders : number;
+    readyDate : Date;
 
     constructor() {
       this.orders = 0;

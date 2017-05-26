@@ -65,17 +65,21 @@ router.route('/order/:placeId/active')
         res.json(sequences);
     });
 });
-router.route('/order/:placeId/status/:status/order/:order')
+router.route('/order/:placeId/status/pending')
     .get(function (req, res) {
-    var order;
-    if (req.params.status === 'asc') {
-        order = 'ascending';
-    }
-    else {
-        order = 'descending';
-    }
     Order.find({ 'place': req.params.placeId, 'status': req.params.status })
-        .sort([['orderDate', order]])
+        .sort([['orderDate', 'ascending']])
+        .populate('item')
+        .populate('item.currency')
+        .exec(function (err, queue) {
+        handleError(err, res);
+        res.json(queue);
+    });
+});
+router.route('/order/:placeId/status/done')
+    .get(function (req, res) {
+    Order.find({ 'place': req.params.placeId, 'status': req.params.status })
+        .sort([['readyDate', 'descending']])
         .populate('item')
         .populate('item.currency')
         .exec(function (err, queue) {

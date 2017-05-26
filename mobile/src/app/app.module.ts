@@ -12,6 +12,7 @@ import { MenuService } from '../providers/MenuService';
 import { OrderPage } from '../pages/order/order';
 import { BasketPage } from '../pages/basket/basket';
 import { PendingPage } from '../pages/pending/pending';
+import { ReadyPage } from '../pages/done/done';
 import { Storage } from '@ionic/storage';
 
 // Import the AF2 Module
@@ -61,6 +62,7 @@ const cloudSettings: CloudSettings = {
     OrderPage,
     BasketPage,
     PendingPage,
+    ReadyPage,
     AnimateItemSliding
   ],
   imports: [
@@ -75,7 +77,8 @@ const cloudSettings: CloudSettings = {
     LoginPage,
     OrderPage,
     BasketPage,
-    PendingPage
+    PendingPage,
+    ReadyPage
   ],
   providers: [ UserService, PlaceService, MenuService, Storage ]
 })

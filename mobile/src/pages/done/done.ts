@@ -2,28 +2,20 @@ import { Component } from '@angular/core';
 import { MenuService } from "../../providers/MenuService";
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import {PendingResponse} from "./PendingResponse";
+import {PendingResponse} from "../pending/PendingResponse";
 
 @Component({
-  selector: 'page-pending',
-  templateUrl: 'pending.html',
+  selector: 'page-ready',
+  templateUrl: 'done.html',
   providers : [MenuService]
 })
-export class PendingPage {
+export class ReadyPage {
 
-  pendingOrders : PendingResponse[];
   selectedPlace : String;
   pendingItems : PendingResponse[] = [];
 
   constructor(private menuService : MenuService, public events: Events, private storage: Storage) {
 
-  }
-
-  public done(sequence : number) {
-    this.menuService.orderDone(this.selectedPlace, sequence).subscribe(response => {
-      let index : number = this.menuService.findByAttr(this.pendingItems, "sequence", sequence);
-      this.pendingItems.splice(index, 1);
-    });
   }
 
   private refresh() {
@@ -32,7 +24,7 @@ export class PendingPage {
       if(this.selectedPlace) {
         this.pendingItems = [];
 
-        this.menuService.getPendingOrders(this.selectedPlace).subscribe(response => {
+        this.menuService.getReadyOrders(this.selectedPlace).subscribe(response => {
           for(var i = 0; i<response.length; i++) {
             let index : number = this.menuService.findByAttr(this.pendingItems, "sequence", response[i].sequence);
             console.log("pendingItems: " + JSON.stringify(response[i].sequence) + " ---- " + index);
