@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" afterPath="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/order/Order.ts" afterPath="$PROJECT_DIR$/server/models/order/Order.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuService.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MenuService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/providers/MenuService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+            <state relative-caret-position="279">
+              <caret line="87" column="45" lean-forward="false" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -102,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Order.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Order.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
-              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -211,9 +209,9 @@
         <option value="$PROJECT_DIR$/mobile/src/domain/basket/Basket.ts" />
         <option value="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" />
         <option value="$PROJECT_DIR$/server/server.ts" />
-        <option value="$PROJECT_DIR$/server/models/order/Order.ts" />
         <option value="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
         <option value="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
+        <option value="$PROJECT_DIR$/server/models/order/Order.ts" />
       </list>
     </option>
   </component>
@@ -635,12 +633,12 @@
       <workItem from="1495624195908" duration="5613000" />
       <workItem from="1495630563120" duration="12641000" />
       <workItem from="1495644154548" duration="15326000" />
-      <workItem from="1495728241354" duration="21701000" />
+      <workItem from="1495728241354" duration="22122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55536000" />
+    <option name="totallyTimeSpent" value="55957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="997" extended-state="6" />
@@ -1097,24 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="135" column="35" lean-forward="false" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/domain/basket/Basket.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1157,8 +1137,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/providers/MenuService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+        <state relative-caret-position="279">
+          <caret line="87" column="45" lean-forward="false" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="135" column="35" lean-forward="false" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -20,7 +20,7 @@ var OrderSchema   = new Schema({
 });
 
 OrderSchema.methods.from = function(order : Order, sequence : Number, place : String) {
-    this.item = order._id;
+    this.item = order.item._id;
     this.orders = order.orders;
     this.sequence = sequence;
     this.place = place;

@@ -54,7 +54,7 @@ export class MenuService {
     item.orders -= 1;
     let index = this.findWithAttr(this.basket.items, '_id', item._id);
     this.basket.items[index]["orders"] = this.basket.items[index]["orders"] - 1;
-    
+
     if(item.orders == 0) {
       this.basket.items.splice(index, 1);
     }
