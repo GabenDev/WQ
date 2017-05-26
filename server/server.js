@@ -67,7 +67,7 @@ router.route('/order/:placeId/active')
 });
 router.route('/order/:placeId/status/pending')
     .get(function (req, res) {
-    Order.find({ 'place': req.params.placeId, 'status': req.params.status })
+    Order.find({ 'place': req.params.placeId, 'status': 'IN_PROGRESS' })
         .sort([['orderDate', 'ascending']])
         .populate('item')
         .populate('item.currency')
@@ -78,7 +78,7 @@ router.route('/order/:placeId/status/pending')
 });
 router.route('/order/:placeId/status/done')
     .get(function (req, res) {
-    Order.find({ 'place': req.params.placeId, 'status': req.params.status })
+    Order.find({ 'place': req.params.placeId, 'status': 'DONE' })
         .sort([['readyDate', 'descending']])
         .populate('item')
         .populate('item.currency')

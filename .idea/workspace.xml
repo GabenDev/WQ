@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/providers/MenuService.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
-              <caret line="127" column="77" lean-forward="true" selection-start-line="127" selection-start-column="77" selection-end-line="127" selection-end-column="77" />
+              <caret line="127" column="70" lean-forward="false" selection-start-line="127" selection-start-column="70" selection-end-line="127" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -91,8 +91,8 @@
       <file leaf-file-name="server.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="96" column="44" lean-forward="false" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+            <state relative-caret-position="559">
+              <caret line="95" column="67" lean-forward="false" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -223,7 +223,6 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/pending/pending.html" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.html" />
         <option value="$PROJECT_DIR$/server/models/order/Order.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
         <option value="$PROJECT_DIR$/mobile/src/pages/done/done.scss" />
         <option value="$PROJECT_DIR$/mobile/src/pages/done/done.ts" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
@@ -232,6 +231,7 @@
         <option value="$PROJECT_DIR$/mobile/src/domain/menu/Item.ts" />
         <option value="$PROJECT_DIR$/mobile/src/pages/done/done.html" />
         <option value="$PROJECT_DIR$/mobile/src/pages/pending/pending.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/providers/MenuService.ts" />
         <option value="$PROJECT_DIR$/server/server.ts" />
       </list>
     </option>
@@ -755,12 +755,12 @@
       <workItem from="1495630563120" duration="12641000" />
       <workItem from="1495644154548" duration="15326000" />
       <workItem from="1495728241354" duration="24648000" />
-      <workItem from="1495812477815" duration="10852000" />
+      <workItem from="1495812477815" duration="11086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69335000" />
+    <option name="totallyTimeSpent" value="69569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="997" extended-state="6" />
@@ -1259,15 +1259,15 @@
     <entry file="file://$PROJECT_DIR$/mobile/src/providers/MenuService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
-          <caret line="127" column="77" lean-forward="true" selection-start-line="127" selection-start-column="77" selection-end-line="127" selection-end-column="77" />
+          <caret line="127" column="70" lean-forward="false" selection-start-line="127" selection-start-column="70" selection-end-line="127" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="96" column="44" lean-forward="false" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+        <state relative-caret-position="559">
+          <caret line="95" column="67" lean-forward="false" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
           <folding />
         </state>
       </provider>

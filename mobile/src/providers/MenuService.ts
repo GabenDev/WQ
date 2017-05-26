@@ -119,13 +119,13 @@ export class MenuService {
   }
 
   public getPendingOrders(placeId : String) : Observable<Order[]> {
-    return this.http.get(this.orderUrl + "/" + placeId + "/status/IN_PROGRESS/order/asc", this.jwt())
+    return this.http.get(this.orderUrl + "/" + placeId + "/status/pending", this.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   public getReadyOrders(placeId : String) : Observable<Order[]> {
-    return this.http.get(this.orderUrl + "/" + placeId + "/status/DONE/order/desc", this.jwt())
+    return this.http.get(this.orderUrl + "/" + placeId + "/status/done", this.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
