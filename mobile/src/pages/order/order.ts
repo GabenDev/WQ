@@ -7,10 +7,10 @@ import {Category} from "../../domain/menu/Category";
 import {Item} from "../../domain/menu/Item";
 import { Storage } from '@ionic/storage';
 import {Basket} from "../../domain/basket/Basket";
-import {BasketItem} from "../../domain/basket/BasketItem";
 import { BasketPage } from "../basket/basket";
 import {NavController} from "ionic-angular";
 import { Events } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-order',
@@ -27,7 +27,7 @@ export class OrderPage {
   selectedCategory : string;
   basketItemsCount : number = 0;
 
-  constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events) {
+  constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events, public toastCtrl: ToastController) {
     this.init();
 
       this.events.subscribe('basket:refreshCount', (item) => {
@@ -67,9 +67,19 @@ export class OrderPage {
   }
 
   public submitOrder() {
-    this.menuService.order();
-    this.init();
-  }
+    this.menuService.order().subscribe(response => {
+      this.getMenu( this.selectedPlace );
+      this.presentToast(response.orders);
+    })
+  };
+
+  presentToast(order : Number) {
+    let toast = this.toastCtrl.create({
+      message: 'Order with number ' + order + ' has successfully created. ',
+      duration: 3000
+    });
+    toast.present();
+    }
 
   public toBasket() {
     this.nav.push(BasketPage);

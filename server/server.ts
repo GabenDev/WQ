@@ -55,7 +55,7 @@ router.get('/', function (req : any, res : any) {
 router.route('/order/:placeId')
     .get(function (req : any, res : any) {
         Order.find({ 'place' : req.params.placeId})
-             .sort([['orderDate', 'descending']])
+             .sort([['orderDate', 'ascending']])
              .exec(function (err : any, queue : any) {
                 handleError(err, res);
                 res.json(queue);
@@ -67,7 +67,7 @@ router.route('/order/:placeId/active')
     .get(function (req : any, res : any) {
         let sequences : Number[] = [];
         Order.find({ 'place' : req.params.placeId, 'status' : 'IN_PROGRESS' })
-            .sort([['orderDate', 'descending']])
+            .sort([['orderDate', 'ascending']])
             .exec(function (err : any, orders : any) {
                 handleError(err, res);
                 for (var index = 0; index < orders.length; ++index) {
@@ -82,7 +82,7 @@ router.route('/order/:placeId/active')
 router.route('/order/:placeId/status/:status')
     .get(function (req : any, res : any) {
         Order.find({ 'place' : req.params.placeId, 'status' : req.params.status })
-            .sort([['orderDate', 'descending']])
+            .sort([['orderDate', 'ascending']])
             .exec(function (err : any, queue : any) {
                 handleError(err, res);
                 res.json(queue);

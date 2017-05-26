@@ -93,6 +93,12 @@ export class MenuService {
     return request;
   }
 
+  public getPendingOrders(placeId : String) {
+    return this.http.get(this.orderUrl + placeId + "/status/IN_PROGRESS", this.jwt())
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 
   handleError(error) {
     console.error(error);
