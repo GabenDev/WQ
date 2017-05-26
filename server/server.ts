@@ -14,7 +14,7 @@ app.use(morgan('dev')); // log requests to the console
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8000; // set our port
+var port = process.env.PORT || 8100; // set our port
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/wisequeue'); // connect to our database
