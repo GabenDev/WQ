@@ -139,6 +139,9 @@ router.route('/order')
     Queue.remove({}, function (err, place) {
         return res.send("Queue Succesfully deleted: " + req.body.id);
     });
+    Order.remove({}, function (err, place) {
+        return res.send("Orders Succesfully deleted: " + req.body.id);
+    });
 });
 router.route('/menu/category/:id/simple')
     .get(function (req, res) {
