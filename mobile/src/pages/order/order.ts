@@ -27,7 +27,7 @@ export class OrderPage {
   selectedCategory : string;
   basketItemsCount : number = 0;
 
-  basket : Basket;
+  basket : Basket = new Basket();
 
   constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events) {
     this.init();
@@ -86,15 +86,19 @@ export class OrderPage {
     } else {
       item.orders += 1;
     }
+
+
+    this.basketItemsCount = this.basketItemsCount+1;
     // this.storage.get('basket').then((response) => {
     //   let basket : Basket = JSON.parse(response);
-    //   let index = this.findWithAttr(basket.items, '_id', item._id);
-    //   if( index == -1) {
-    //     basket.items.push(new BasketItem(item, 1));
-    //   } else {
-    //     basket.items[index]["orders"] = basket.items[index]["orders"] + 1;
-    //   }
-      this.basketItemsCount = this.basketItemsCount+1;
+      let index = this.findWithAttr(this.basket.items, '_id', item._id);
+      if( index == -1) {
+        this.basket.items.push(new BasketItem(item, 1));
+      } else {
+        this.basket.items[index]["orders"] = this.basket.items[index]["orders"] + 1;
+      }
+
+
     //   console.log(JSON.stringify(basket));
     //   this.storage.set('basket', JSON.stringify(basket));
     //   this.events.publish('order:created', item);

@@ -110,7 +110,7 @@ router.route('/order')
 })
     .post(function (req, res) {
     var place = req.body.place;
-    var orders = req.body.orders;
+    var orders = req.body.items;
     console.log(orders[0].item);
     Queue.findOne({ 'place': place })
         .exec(function (err, queue) {

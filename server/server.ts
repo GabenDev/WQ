@@ -129,7 +129,7 @@ router.route('/order')
 
     .post(function (req : any, res : any) {
         let place = req.body.place;
-        let orders : Order[] = req.body.orders;
+        let orders : Order[] = req.body.items;
         console.log(orders[0].item);
 
 

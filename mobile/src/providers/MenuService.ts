@@ -28,6 +28,20 @@ export class MenuService {
       .catch(this.handleError);
   }
 
+
+// {
+//   "place" : "59245f209791c610ca9111a8",
+//   "orders" : [
+//     { "item" : "592535469c0a0b38b2de4df7", "orders" : 2},
+//     { "item" : "592535469c0a0b38b2de4df8", "orders" : 5}
+//     ]
+// }
+
+  public order() {
+    
+  }
+
+
   handleError(error) {
     console.error(error);
     alert("Error: " + error);
