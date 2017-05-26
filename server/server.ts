@@ -141,8 +141,7 @@ router.route('/order')
                 if(req.body.newValue) {
                     queue.orders = req.body.newValue;
                 }
-                delete queue._id;
-                Queue.findOneAndUpdate({ 'place' :  place }, queue, {upsert:true}, function(err : any){
+                Queue.findOneAndUpdate({ 'place' :  place }, { "place" : place, "orders" : queue.orders }, {upsert:true}, function(err : any){
                     if (err) return res.send(500, { error: err });
                 });
 
