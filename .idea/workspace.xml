@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="" />
+    <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.ts" afterPath="$PROJECT_DIR$/server/server.ts" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -78,8 +81,8 @@
       <file leaf-file-name="server.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="161" column="71" lean-forward="false" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
+            <state relative-caret-position="287">
+              <caret line="143" column="28" lean-forward="false" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -620,12 +623,12 @@
       <workItem from="1495624195908" duration="5613000" />
       <workItem from="1495630563120" duration="12641000" />
       <workItem from="1495644154548" duration="15326000" />
-      <workItem from="1495728241354" duration="23718000" />
+      <workItem from="1495728241354" duration="24040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57553000" />
+    <option name="totallyTimeSpent" value="57875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="989" extended-state="6" />
@@ -1138,8 +1141,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="161" column="71" lean-forward="false" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
+        <state relative-caret-position="287">
+          <caret line="143" column="28" lean-forward="false" selection-start-line="143" selection-start-column="28" selection-end-line="143" selection-end-column="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
