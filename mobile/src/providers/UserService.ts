@@ -7,13 +7,15 @@ import {User} from '../domain/user';
 
 @Injectable()
 export class UserService {
-  baseUrl = "http://gaben.gleeze.com:8100/api/user"
+  baseUrl = "http://localhost:8001/user"
+  private accessToken : string;
+  private idToken : string;
 
   constructor(public http: Http) {
     console.log('UserService initialized');
   }
 
-  public authenticate(user : User): Observable<User> {
+  public authenticate(user : User): Observable<any> {
     console.log(JSON.stringify(user));
     return this.http.post(this.baseUrl + "/auth", JSON.stringify(user), this.jwt())
       .map(res => res.json())
@@ -27,7 +29,26 @@ export class UserService {
   }
 
   public jwt() {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({
+      'Content-Type': 'application/json', 'Authorization' : 'Bearer ' + this.accessToken
+    });
     return new RequestOptions({ headers: headers });
   }
+
+  public setIdToken(idToken : string) {
+    this.idToken = idToken;
+  }
+
+  public setAccessToken(accessToken : string) {
+    this.accessToken = accessToken;
+  }
+
+  public getIdToken() {
+    return this.idToken;
+  }
+
+  public getAccessToken() {
+    return this.accessToken;
+  }
+
 }

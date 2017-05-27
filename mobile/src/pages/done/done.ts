@@ -6,8 +6,7 @@ import {PendingResponse} from "../pending/PendingResponse";
 
 @Component({
   selector: 'page-ready',
-  templateUrl: 'done.html',
-  providers : [MenuService]
+  templateUrl: 'done.html'
 })
 export class ReadyPage {
 

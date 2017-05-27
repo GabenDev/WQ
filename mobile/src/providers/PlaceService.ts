@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import {Place} from "../domain/Place";
+import { Place } from "../domain/Place";
+import { Storage }        from '@ionic/storage';
+import { UserService } from "./UserService";
 
 @Injectable()
 export class PlaceService {
-  baseUrl = "http://gaben.gleeze.com:8100/api/place"
+  // baseUrl = "http://gaben.gleeze.com:8100/api/place"
+  baseUrl = "http://localhost:8001/api/place"
 
-  constructor(public http: Http) {
+  constructor( private storage: Storage, public http: Http, public userService : UserService ) {
     console.log('PlaceService initialized');
   }
 
   public getPlaces() : Observable<Place[]> {
-    return this.http.get(this.baseUrl, this.jwt())
+    return this.http.get(this.baseUrl, this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -24,8 +27,4 @@ export class PlaceService {
     return Observable.throw(error.json().error || 'Server error');
   }
 
-  public jwt() {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    return new RequestOptions({ headers: headers });
-  }
 }

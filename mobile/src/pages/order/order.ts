@@ -1,35 +1,36 @@
 import { Component } from '@angular/core';
 import { PlaceService } from '../../providers/PlaceService';
 import { Observable } from "rxjs/Observable";
-import {Place} from "../../domain/Place";
-import {MenuService} from "../../providers/MenuService";
-import {Category} from "../../domain/menu/Category";
-import {Item} from "../../domain/menu/Item";
+import { Place } from "../../domain/Place";
+import { MenuService } from "../../providers/MenuService";
+import { Category } from "../../domain/menu/Category";
+import { Item } from "../../domain/menu/Item";
 import { Storage } from '@ionic/storage';
-import {Basket} from "../../domain/basket/Basket";
+import { Basket } from "../../domain/basket/Basket";
 import { BasketPage } from "../basket/basket";
-import {NavController} from "ionic-angular";
+import { NavController } from "ionic-angular";
 import { Events } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import {UserService} from "../../providers/UserService";
+
 
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
   providers : [PlaceService, MenuService, Storage]
+  // providers: [ MenuService ]
 })
 export class OrderPage {
 
   places : Place[];
-  categories : Category[];
+  categories : Category[] = [];
   items : Item[];
 
   selectedPlace : string;
   selectedCategory : string;
   basketItemsCount : number = 0;
 
-  constructor(public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events, public toastCtrl: ToastController) {
-    this.init();
-
+  constructor(public userService : UserService, public placeService : PlaceService, private menuService : MenuService, private storage: Storage, public nav : NavController, public events: Events, public toastCtrl: ToastController) {
       this.events.subscribe('basket:refreshCount', (item) => {
         this.basketItemsCount = -1;
         this.storage.get('basket').then((response) => {
@@ -37,8 +38,10 @@ export class OrderPage {
           for (var i = 0; i < basket.items.length; i++) {
             this.basketItemsCount += basket.items[i].orders;
           }
+        });
       });
-    });
+
+      this.init();
   }
 
   public init() {
@@ -54,10 +57,12 @@ export class OrderPage {
     this.menuService.setPlace(placeId);
     this.storage.set('selectedPlace', placeId);
 
-    this.menuService.getCategories(placeId).subscribe(response => {
-      this.categories = response;
-      console.log(JSON.stringify(response));
-    });
+    if(this.categories.length == 0) {
+      this.menuService.getCategories(placeId).subscribe(response => {
+        this.categories = response;
+        console.log(JSON.stringify(response));
+      });
+    }
   }
 
   public getItems( categoryId : string) {
@@ -85,7 +90,7 @@ export class OrderPage {
       this.getMenu( this.selectedPlace );
       this.basketItemsCount = 0;
       this.presentToast(response.orders);
-    })
+    });
   };
 
   presentToast(order : Number) {
@@ -94,7 +99,7 @@ export class OrderPage {
       duration: 3000
     });
     toast.present();
-    }
+  }
 
   public toBasket() {
     this.nav.push(BasketPage);
@@ -113,6 +118,7 @@ export class OrderPage {
   }
 
   public getPlaces() {
+    console.log("getPlaces access token: " + this.userService.getAccessToken());
     this.placeService.getPlaces().subscribe(response => {
       this.places = response;
       console.log(JSON.stringify(response));

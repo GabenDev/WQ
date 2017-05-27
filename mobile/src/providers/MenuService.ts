@@ -1,35 +1,40 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import {Category} from "../domain/menu/Category";
-import {Item} from "../domain/menu/Item";
-import {Basket} from "../domain/basket/Basket";
-import {BasketItem} from "../domain/basket/BasketItem";
-import {Order} from "../domain/menu/Order";
+import { Category } from "../domain/menu/Category";
+import { Item } from "../domain/menu/Item";
+import { Basket } from "../domain/basket/Basket";
+import { BasketItem } from "../domain/basket/BasketItem";
+import { Order } from "../domain/menu/Order";
+import { UserService } from "./UserService";
 
 @Injectable()
 export class MenuService {
-  baseUrl = "http://gaben.gleeze.com:8100/api/menu"
-  orderUrl = "http://gaben.gleeze.com:8100/api/order"
+  // baseUrl = "http://gaben.gleeze.com:8001/api/menu"
+  // orderUrl = "http://gaben.gleeze.com:8001/api/order"
+
+  baseUrl = "http://localhost:8001/api/menu"
+  orderUrl = "http://localhost:8001/api/order"
+
   basket : Basket = new Basket();
 
   selectedPlace : String;
-  constructor(public http: Http) {
+  constructor(public http: Http, private userService : UserService) {
     console.log('MenuService initialized');
   }
 
   // place/:placeId
   public getCategories(placeId : string) : Observable<Category[]> {
-    return this.http.get(this.baseUrl + "/place/" + placeId, this.jwt())
+    return this.http.get(this.baseUrl + "/place/" + placeId, this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   // category/:categoryId
   public getItems(categoryId : string) : Observable<Item[]> {
-    return this.http.get(this.baseUrl + "/category/" + categoryId, this.jwt())
+    return this.http.get(this.baseUrl + "/category/" + categoryId, this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -103,7 +108,7 @@ export class MenuService {
 // }
   public order() {
     console.log(JSON.stringify(this.basket));
-    let request = this.http.post(this.orderUrl, JSON.stringify(this.basket), this.jwt())
+    let request = this.http.post(this.orderUrl, JSON.stringify(this.basket), this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
     this.basket = new Basket();
@@ -114,19 +119,19 @@ export class MenuService {
     return this.http.post(this.orderUrl + "/done", {
       "placeId" : place,
       "sequence" : sequence
-    }, this.jwt())
+    }, this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   public getPendingOrders(placeId : String) : Observable<Order[]> {
-    return this.http.get(this.orderUrl + "/" + placeId + "/status/pending", this.jwt())
+    return this.http.get(this.orderUrl + "/" + placeId + "/status/pending", this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   public getReadyOrders(placeId : String) : Observable<Order[]> {
-    return this.http.get(this.orderUrl + "/" + placeId + "/status/done", this.jwt())
+    return this.http.get(this.orderUrl + "/" + placeId + "/status/done", this.userService.jwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -135,10 +140,5 @@ export class MenuService {
     console.error(error);
     alert("Error: " + error);
     return Observable.throw(error.json().error || 'Server error');
-  }
-
-  public jwt() {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    return new RequestOptions({ headers: headers });
   }
 }
