@@ -65,7 +65,7 @@ router.get('/', function (req, res) {
     res.json({message: 'The service is up and running!'});
 });
 
-// router.use('/api', jwtCheck, requireScope('full_access'));
+router.use('/api', jwtCheck, requireScope('full_access'));
 
 router.get('/api/order/:placeId', function(req, res) {
   console.log(JSON.stringify(req.user));
