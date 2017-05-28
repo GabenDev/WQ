@@ -11,7 +11,7 @@ var app = module.exports = express.Router();
 var User = require('./models/user');
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Init Mongo Connection
