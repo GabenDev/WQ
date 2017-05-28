@@ -132,13 +132,11 @@ router.route('/api/order/done')
     .post(function (req, res) {
     Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
         if (err) return res.send(500, { error: err });
+        this.wss.clients.forEach(function each(client) {
+            client.send("broadcast: spanner updated");
+        });
         return res.json(item);
     });
-
-    this.wss.clients.forEach(function each(client) {
-        client.send("broadcast: spanner " + spanner_id + " updated");
-    });
-
 });
 
 router.route('/api/order/cancel')
