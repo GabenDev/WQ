@@ -17,7 +17,7 @@ export class UserService {
 
   public authenticate(user : User): Observable<any> {
     console.log(JSON.stringify(user));
-    return this.http.post(this.baseUrl + "/auth", JSON.stringify(user), this.jwt())
+    return this.http.post(this.baseUrl + "/auth", JSON.stringify(user), this.simpleJwt())
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -26,6 +26,13 @@ export class UserService {
     console.error(error);
     alert("Error: " + error);
     return Observable.throw(error.json().error || 'Server error');
+  }
+
+  public simpleJwt() {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return new RequestOptions({ headers: headers });
   }
 
   public jwt() {

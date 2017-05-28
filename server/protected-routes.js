@@ -23,6 +23,7 @@ router.use(bodyParser.json());
 // Init Mongo Connection
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/wisequeue'); // connect to our database
+var wss;
 
 //
 // ROUTES FOR OUR API
@@ -60,12 +61,21 @@ router.use(function (req, res, next) {
     next();
 });
 
+var protectedRoutes = function(wss) {
+    console.log('Protected Routes');
+    this.wss = wss;
+    return router;
+};
+
+module.exports = protectedRoutes;
+
+
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function (req, res) {
     res.json({message: 'The service is up and running!'});
 });
 
-router.use('/api', jwtCheck, requireScope('full_access'));
+//router.use('/api', jwtCheck, requireScope('full_access'));
 
 router.get('/api/order/:placeId', function(req, res) {
   console.log(JSON.stringify(req.user));
@@ -124,6 +134,11 @@ router.route('/api/order/done')
         if (err) return res.send(500, { error: err });
         return res.json(item);
     });
+
+    this.wss.clients.forEach(function each(client) {
+        client.send("broadcast: spanner " + spanner_id + " updated");
+    });
+
 });
 
 router.route('/api/order/cancel')

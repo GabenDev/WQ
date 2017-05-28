@@ -1,3 +1,5 @@
+var WebSocketServer = require('ws').Server, wss = new WebSocketServer({ port: 9090 });
+
 var logger          = require('morgan'),
     cors            = require('cors'),
     http            = require('http'),
@@ -5,7 +7,7 @@ var logger          = require('morgan'),
     errorhandler    = require('errorhandler'),
     dotenv          = require('dotenv'),
     bodyParser      = require('body-parser'),
-    protectedRoutes = require('./protected-routes');
+    protectedRoutes = require('./protected-routes')(wss);
 
 var app = express();
 
