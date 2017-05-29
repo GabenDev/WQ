@@ -32,7 +32,7 @@ var wss;
 // var router = express.Router();
 
 // Validate access_token
-var jwtCheckjwtCheck = jwt({
+var jwtCheck = jwt({
   secret: config.secret,
   audience: config.audience,
   issuer: config.issuer
