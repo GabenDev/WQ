@@ -20,7 +20,7 @@ export class ReadyPage {
     this.refresh();
     this.myWebSocket.onmessage = function(item) {
       alert('Message arrived: ' + item.data);
-      // let order : Order = JSON.parse(item.data);
+      let order : Order[] = JSON.parse(item.data);
       events.publish('order:done', item);
     };
 

@@ -141,7 +141,7 @@ router.route('/api/order/done')
                 this.wss.clients.forEach(function each(client) {
                     client.send(JSON.stringify(orders));
                 });
-                return res.json(order);
+                return res.json(orders);
             });
     });
 });
@@ -181,21 +181,21 @@ router.route('/api/order')
 
     console.log('Order made');
 
-    // Queue.findOne({ 'place' : place }).exec(function (err, queue) {
-    //     if(queue != null) {
-    //         queue.orders = queue.orders + 1;
-    //     } else {
-    //         queue = new Queue().from(req.body);
-    //     }
-    //     if(req.body.newValue) {
-    //         queue.orders = req.body.newValue;
-    //     }
+    Queue.findOne({ 'place' : place }).exec(function (err, queue) {
+        if(queue != null) {
+            queue.orders = queue.orders + 1;
+        } else {
+            queue = new Queue().from(req.body);
+        }
+        if(req.body.newValue) {
+            queue.orders = req.body.newValue;
+        }
 
         Queue.findOneAndUpdate({ 'place' :  place },
-            {
-                $inc : { orders : 1 }
-            },
-            {upsert:true}, function(err, queue){
+            // {
+            //     $inc : { counter : 1 }
+            // },
+            { "place" : place, "orders" : queue.orders }, {upsert:true}, function(err){
             if (err) return res.send(500, { error: err });
             for (var index = 0; index < orders.length; ++index) {
                 var order = new Order().from(orders[index], queue.orders, place);
@@ -205,7 +205,7 @@ router.route('/api/order')
             }
             res.json(queue);
         });
-    // });
+    });
 })
 
 .delete(function (req, res) {
