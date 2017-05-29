@@ -130,7 +130,7 @@ router.route('/api/order/:placeId/status/done')
 
 router.route('/api/order/done')
     .post(function (req, res) {
-    Order.findOneAndUpdate({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
+    Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
         if (err) return res.send(500, { error: err });
         this.wss.clients.forEach(function each(client) {
             client.send(JSON.stringify(item));
