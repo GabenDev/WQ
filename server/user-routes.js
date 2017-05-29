@@ -127,8 +127,8 @@ app.route('/user/auth').post(function (req, res) {
     });
 });
 
-app.route('/users').get(function (req, res) {
-    User.find(function (err, users) {
-        res.json(users);
-    });
-});
+// app.route('/users').get(function (req, res) {
+//     User.find(function (err, users) {
+//         res.json(users);
+//     });
+// });

@@ -75,7 +75,7 @@ router.get('/', function (req, res) {
     res.json({message: 'The service is up and running!'});
 });
 
-//router.use('/api', jwtCheck, requireScope('full_access'));
+router.use('/api', jwtCheck, requireScope('full_access'));
 
 router.get('/api/order/:placeId', function(req, res) {
   console.log(JSON.stringify(req.user));
@@ -130,10 +130,10 @@ router.route('/api/order/:placeId/status/done')
 
 router.route('/api/order/done')
     .post(function (req, res) {
-    Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
+    Order.findOneAndUpdate({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
         if (err) return res.send(500, { error: err });
         this.wss.clients.forEach(function each(client) {
-            client.send("broadcast: spanner updated");
+            client.send(JSON.stringify(item));
         });
         return res.json(item);
     });

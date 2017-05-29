@@ -3,6 +3,7 @@ import { MenuService } from "../../providers/MenuService";
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {PendingResponse} from "../pending/PendingResponse";
+import {Order} from "../../domain/menu/Order";
 
 @Component({
   selector: 'page-ready',
@@ -17,12 +18,13 @@ export class ReadyPage {
 
   constructor(private menuService : MenuService, public events: Events, private storage: Storage) {
     this.refresh();
-    this.myWebSocket.onmessage = function(evt) {
-      events.publish('order:done', evt);
+    this.myWebSocket.onmessage = function(item) {
+      events.publish('order:done', item);
     };
 
     this.events.subscribe('order:done', (item) => {
-      this.refresh();
+      let order : Order = JSON.parse(item);;
+      this.pendingItems.unshift(new PendingResponse(order));
     });
   }
 
