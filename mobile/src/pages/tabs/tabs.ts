@@ -4,7 +4,7 @@ import { PendingPage } from "../pending/pending";
 import { ReadyPage } from "../done/done";
 
 @Component({
-  templateUrl: 'tabs.html'g
+  templateUrl: 'tabs.html'
 })
 export class TabsPage {
   tab1Root : any = OrderPage;

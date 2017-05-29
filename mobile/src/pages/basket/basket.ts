@@ -40,13 +40,13 @@ export class BasketPage {
   }
 
   private findWithAttr(array, attr, value) {
-    //if(array) {
-    //  for(var i = 0; i < array.length; i += 1) {
-    //    if(array[i]["item"][attr] === value) {
-    //      return i;
-    //    }
-    //  }
-    //}
+    if(array) {
+     for(var i = 0; i < array.length; i += 1) {
+       if(array[i]["item"][attr] === value) {
+         return i;
+       }
+     }
+    }
     return -1;
   }
 
