@@ -19,12 +19,14 @@ export class ReadyPage {
   constructor(private menuService : MenuService, public events: Events, private storage: Storage) {
     this.refresh();
     this.myWebSocket.onmessage = function(item) {
+      alert('Message arrived: ' + item.data);
+      // let order : Order = JSON.parse(item.data);
       events.publish('order:done', item);
     };
 
     this.events.subscribe('order:done', (item) => {
-      let order : Order = JSON.parse(item);;
-      this.pendingItems.unshift(new PendingResponse(order));
+      alert('Message arrived: ' + item.item.name);
+      // this.pendingItems.unshift(new PendingResponse(order));
     });
   }
 

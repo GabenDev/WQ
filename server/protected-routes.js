@@ -132,10 +132,17 @@ router.route('/api/order/done')
     .post(function (req, res) {
     Order.update({ 'place' : req.body.placeId, 'sequence' : req.body.sequence }, { 'readyDate' : Date.now(),'status' : 'DONE' }, {multi: true}, function(err, item){
         if (err) return res.send(500, { error: err });
-        this.wss.clients.forEach(function each(client) {
-            client.send(JSON.stringify(item));
-        });
-        return res.json(item);
+        Order.find({ 'place' : req.params.placeId, 'sequence' : req.params.sequence })
+            .populate('place')
+            .populate('item')
+            .sort([['orderDate', 'descending']])
+            .exec(function (err, orders) {
+                handleError(err, res);
+                this.wss.clients.forEach(function each(client) {
+                    client.send(JSON.stringify(orders));
+                });
+                return res.json(order);
+            });
     });
 });
 
@@ -158,7 +165,6 @@ router.route('/api/order/:placeId/item/:sequence')
     });
 });
 
-
 router.route('/api/order')
     .get(function (req, res) {
     Order.find({ })
@@ -175,18 +181,21 @@ router.route('/api/order')
 
     console.log('Order made');
 
-    Queue.findOne({ 'place' : place }).exec(function (err, queue) {
-        if(queue != null) {
-            queue.orders = queue.orders + 1;
-        } else {
-            queue = new Queue().from(req.body);
-        }
-        if(req.body.newValue) {
-            queue.orders = req.body.newValue;
-        }
+    // Queue.findOne({ 'place' : place }).exec(function (err, queue) {
+    //     if(queue != null) {
+    //         queue.orders = queue.orders + 1;
+    //     } else {
+    //         queue = new Queue().from(req.body);
+    //     }
+    //     if(req.body.newValue) {
+    //         queue.orders = req.body.newValue;
+    //     }
 
-
-        Queue.findOneAndUpdate({ 'place' :  place }, { "place" : place, "orders" : queue.orders }, {upsert:true}, function(err){
+        Queue.findOneAndUpdate({ 'place' :  place },
+            {
+                $inc : { orders : 1 }
+            },
+            {upsert:true}, function(err){
             if (err) return res.send(500, { error: err });
             for (var index = 0; index < orders.length; ++index) {
                 var order = new Order().from(orders[index], queue.orders, place);
@@ -196,7 +205,7 @@ router.route('/api/order')
             }
             res.json(queue);
         });
-    });
+    // });
 })
 
 .delete(function (req, res) {

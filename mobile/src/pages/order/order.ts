@@ -96,7 +96,10 @@ export class OrderPage {
   presentToast(order : Number) {
     let toast = this.toastCtrl.create({
       message: 'Order with number ' + order + ' has successfully created. ',
-      duration: 3000
+      duration: 3000,
+      position: 'top',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
     });
     toast.present();
   }

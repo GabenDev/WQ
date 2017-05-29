@@ -13,17 +13,11 @@ export class PendingPage {
   selectedPlace : String;
   pendingItems : PendingResponse[] = [];
 
-  private myWebSocket = new WebSocket("ws://localhost:9090");
-
   constructor(private menuService : MenuService, public events: Events, private storage: Storage) {
-    this.refresh();
-    this.myWebSocket.onmessage = function(evt) {
-      events.publish('order:new', evt);
-    };
+  }
 
-    this.events.subscribe('order:new', (item) => {
-      this.refresh();
-    });
+  ionViewDidEnter() {
+    this.refresh();
   }
 
   public done(sequence : number) {
