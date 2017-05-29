@@ -195,7 +195,7 @@ router.route('/api/order')
             {
                 $inc : { orders : 1 }
             },
-            {upsert:true}, function(err){
+            {upsert:true}, function(err, queue){
             if (err) return res.send(500, { error: err });
             for (var index = 0; index < orders.length; ++index) {
                 var order = new Order().from(orders[index], queue.orders, place);

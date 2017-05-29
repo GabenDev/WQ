@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b564ec9-005f-4843-a80d-b07b77baf5bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/done/done.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/done/done.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/order/order.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/pages/pending/pending.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/pending/pending.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/protected-routes.js" afterPath="$PROJECT_DIR$/server/protected-routes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -64,8 +60,8 @@
       <file leaf-file-name="protected-routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/protected-routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="196" column="14" lean-forward="true" selection-start-line="196" selection-start-column="14" selection-end-line="196" selection-end-column="14" />
+            <state relative-caret-position="579">
+              <caret line="197" column="48" lean-forward="true" selection-start-line="197" selection-start-column="48" selection-end-line="197" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -75,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -95,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/server/models/menu/MenuCategory.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
-              <caret line="29" column="59" lean-forward="true" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+              <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -795,12 +791,12 @@
       <workItem from="1495728241354" duration="24648000" />
       <workItem from="1495812477815" duration="13445000" />
       <workItem from="1496035456593" duration="3942000" />
-      <workItem from="1496039652621" duration="3608000" />
+      <workItem from="1496039652621" duration="3816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100535000" />
+    <option name="totallyTimeSpent" value="100743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="997" extended-state="6" />
@@ -1266,7 +1262,7 @@
     <entry file="file://$PROJECT_DIR$/server/models/menu/MenuCategory.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
-          <caret line="29" column="59" lean-forward="true" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+          <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1282,7 +1278,7 @@
     <entry file="file://$PROJECT_DIR$/server/models/order/Order.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1297,8 +1293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/protected-routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="196" column="14" lean-forward="true" selection-start-line="196" selection-start-column="14" selection-end-line="196" selection-end-column="14" />
+        <state relative-caret-position="579">
+          <caret line="197" column="48" lean-forward="true" selection-start-line="197" selection-start-column="48" selection-end-line="197" selection-end-column="48" />
           <folding />
         </state>
       </provider>
