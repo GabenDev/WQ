@@ -12,11 +12,11 @@ import { UserService } from "./UserService";
 
 @Injectable()
 export class MenuService {
-  // baseUrl = "http://gaben.gleeze.com:8001/api/menu"
-  // orderUrl = "http://gaben.gleeze.com:8001/api/order"
+   baseUrl = "http://gaben.gleeze.com:8001/api/menu"
+   orderUrl = "http://gaben.gleeze.com:8001/api/order"
 
-  baseUrl = "http://localhost:8001/api/menu"
-  orderUrl = "http://localhost:8001/api/order"
+  //baseUrl = "http://localhost:8001/api/menu"
+  //orderUrl = "http://localhost:8001/api/order"
 
   basket : Basket = new Basket();
 
@@ -75,27 +75,27 @@ export class MenuService {
 
   public getBasketItemCount() {
     let count = 0;
-    for(var i = 0; i < this.basket.items.length; i += 1) {
-      count += this.basket.items[i].item.orders;
-    }
+    //for(var i = 0; i < this.basket.items.length; i += 1) {
+    //  count += this.basket.items[i].item.orders;
+    //}
     return count;
   }
 
   public findByAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i][attr] === value) {
-        return i;
-      }
-    }
+    //for(var i = 0; i < array.length; i += 1) {
+    //  if(array[i][attr] === value) {
+    //    return i;
+    //  }
+    //}
     return -1;
   }
 
   private findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i]["item"][attr] === value) {
-        return i;
-      }
-    }
+    //for(var i = 0; i < array.length; i += 1) {
+    //  if(array[i]["item"][attr] === value) {
+    //    return i;
+    //  }
+    //}
     return -1;
   }
 

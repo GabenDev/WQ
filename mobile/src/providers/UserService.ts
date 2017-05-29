@@ -7,7 +7,9 @@ import {User} from '../domain/user';
 
 @Injectable()
 export class UserService {
-  baseUrl = "http://localhost:8001/user"
+  //baseUrl = "http://localhost:8001/user";
+  baseUrl = "http://gaben.gleeze.com:8001/user";
+
   private accessToken : string;
   private idToken : string;
 

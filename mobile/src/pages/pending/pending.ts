@@ -39,17 +39,17 @@ export class PendingPage {
       if(this.selectedPlace) {
         this.pendingItems = [];
 
-        this.menuService.getPendingOrders(this.selectedPlace).subscribe(response => {
-          for(var i = 0; i<response.length; i++) {
-            let index : number = this.menuService.findByAttr(this.pendingItems, "sequence", response[i].sequence);
-            if(index == -1) {
-                  this.pendingItems.push(new PendingResponse(response[i]));
-            } else {
-              this.pendingItems[index].items.push(response[i]);
-            }
-          }
-          console.log(JSON.stringify(this.pendingItems));
-        });
+        //this.menuService.getPendingOrders(this.selectedPlace).subscribe(response => {
+        //  for(var i = 0; i<response.length; i++) {
+        //    let index : number = this.menuService.findByAttr(this.pendingItems, "sequence", response[i].sequence);
+        //    if(index == -1) {
+        //          this.pendingItems.push(new PendingResponse(response[i]));
+        //    } else {
+        //      this.pendingItems[index].items.push(response[i]);
+        //    }
+        //  }
+        //  console.log(JSON.stringify(this.pendingItems));
+        //});
       }
     });
   }
